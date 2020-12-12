@@ -2,14 +2,22 @@
 
 WagePerHr=20
 FullDayHr=8
+PartTimeDayHr=6
+random=$((RANDOM%3))
 
-random=$((RANDOM%2))
-if (( $random == 0 ))
-then
-echo "employee is present"
-DailyWage=$(( $WagePerHr * $FullDayHr ))
-echo "Daily Salary is : $DailyWage"
-else
-echo "employee is absent"
-fi
 
+case $random in
+
+	0)
+	DailyPWage=$(( $WagePerHr * $PartTimeDayHr ))
+	echo "employee is present"
+	echo "Part Time Employee Daily Wage : $DailyPWage"
+	;;
+	1)
+	DailyFWage=$(( $WagePerHr * $FullDayHr ))
+	echo "Full time Employee Daily Wage is : $DailyFWage"
+	;;
+	2)
+	echo "employee is absent"
+	;;
+esac
